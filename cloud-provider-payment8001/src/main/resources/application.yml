@@ -1,0 +1,12 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    #driver-class-name: com.mysql.jdbc.Driver #Todo 有啥区别
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.128.3.251:3306/atguigu_cloud_2020?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123456
