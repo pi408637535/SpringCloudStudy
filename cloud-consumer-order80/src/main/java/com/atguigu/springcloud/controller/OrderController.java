@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 @RequestMapping("/consumer")
 public class OrderController {
     //通过服务名调用
-    public static final String PAYMENT_URL = "http://localhost:8001";
+    public static final String PAYMENT_URL = "http://cloud-payment-service";
 
     @Resource
     private RestTemplate restTemplate;
@@ -26,6 +26,12 @@ public class OrderController {
     @GetMapping("/payment/get/{id}")
     public Result<Payment> getPayment(@PathVariable("id") Long id) {
         return restTemplate.getForObject(PAYMENT_URL + "/payment/" + id, Result.class);
+    }
+
+    @GetMapping("/payment/getForEntity/{id}")
+    public Result<Payment> getPayment2(@PathVariable("id") Long id) {
+        Result<Payment> paymentResult = restTemplate.getForObject(PAYMENT_URL + "/payment/" + id, Result.class);
+        return paymentResult;
     }
 }
 

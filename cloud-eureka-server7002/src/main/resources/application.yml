@@ -1,5 +1,5 @@
 server:
-  port: 7001
+  port: 7002
 
 spring:
   application:
@@ -7,13 +7,10 @@ spring:
 
 eureka:
   instance:
-    hostname: eureka7001.com   # 定义主机名作为 Eureka 注册中心的地址，需要在系统 host 文件中配置：127.0.0.1 eureka7001.com
+    hostname: eureka7002.com   # 定义主机名作为 Eureka 注册中心的地址，需要在系统 host 文件中配置：127.0.0.1 eureka7001.com
   client:
     register-with-eureka: false       # false表示不向注册中心注册自己，单机版关闭，集群版默认打卡
     fetch-registry: false             # false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务，单机版关闭，集群版不用打开
     service-url:
-        #设置eureka交互查询地址与注册服务地址
-        defaultZone: http://eureka7002.com:7001/eureka
-  server:
-    enable-self-preservation: true
-    eviction-interval-timer-in-ms: 20
+      #设置eureka交互查询地址与注册服务地址
+      defaultZone: http://eureka7001.com:7001/eureka

@@ -131,7 +131,7 @@ public class PaymentController {
     public Result<Payment> findById(@PathVariable Long id){
         //调用PaymentService实现根据主键查询Payment
         Payment payment = paymentService.findById(id);
-        return new Result<Payment>(true,StatusCode.OK,"查询成功8001",payment);
+        return new Result<Payment>(true,StatusCode.OK,"查询成功8002",payment);
     }
 
     /***

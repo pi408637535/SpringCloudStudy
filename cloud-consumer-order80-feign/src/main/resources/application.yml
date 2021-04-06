@@ -13,6 +13,14 @@ eureka:
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
   instance:
     prefer-ip-address: true
-    #    instance-id: spring.cloud.client.ip−address:{server.port}
-    lease-renewal-interval-in-seconds: 5      # 微服务向 Eureka 发送心跳信息的时间间隔，单位为秒（默认是30秒）
-    lease-expiration-duration-in-seconds: 10   # Eureka 在收到最后一次心跳后等待的时间上限，超时将提出服务，单位为秒（默认是90秒）
+    instance-id: spring.cloud.client.ip−address:{server.port}
+
+# 设置 Feign 客户端超时时间
+ribbon:
+  ReadTimeout: 5000         # 建立连接所用的时间，网络状况正常的情况下，两端连接所用的时间，单位：ms
+  ConnectTimeout: 5000      # 建立连接后从服务器读取到可用资源的时间，单位：ms
+
+logging:
+  level:
+    # feign 日志以什么级别监控哪个接口
+    com.atguigu.springcloud.service.PaymentFeignService: debug
